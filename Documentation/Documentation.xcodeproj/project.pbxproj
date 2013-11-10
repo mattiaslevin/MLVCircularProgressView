@@ -1,0 +1,186 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CD51C25B182FAF13009C6BAD /* Generate documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CD51C25C182FAF13009C6BAD /* Build configuration list for PBXAggregateTarget "Generate documentation" */;
+			buildPhases = (
+				CD51C265182FAF5D009C6BAD /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Generate documentation";
+			productName = "Generate API";
+		};
+		CD51C25F182FAF28009C6BAD /* Upload documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CD51C260182FAF28009C6BAD /* Build configuration list for PBXAggregateTarget "Upload documentation" */;
+			buildPhases = (
+				CD51C266182FB2FD009C6BAD /* ShellScript */,
+			);
+			dependencies = (
+				CD51C264182FAF30009C6BAD /* PBXTargetDependency */,
+			);
+			name = "Upload documentation";
+			productName = "Upload API";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		CD51C263182FAF30009C6BAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD51C255182FAEEB009C6BAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD51C25B182FAF13009C6BAD;
+			remoteInfo = "Generate API";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXGroup section */
+		CD51C254182FAEEB009C6BAD = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		CD51C255182FAEEB009C6BAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = CD51C258182FAEEB009C6BAD /* Build configuration list for PBXProject "Documentation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD51C254182FAEEB009C6BAD;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD51C25B182FAF13009C6BAD /* Generate documentation */,
+				CD51C25F182FAF28009C6BAD /* Upload documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD51C265182FAF5D009C6BAD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc --project-name MLVCircularProgressView --project-company \"Wadpam\" --company-id com.wadpam --output $SOURCE_ROOT/Doc --no-repeat-first-par --explicit-crossref --no-install-docset --keep-intermediate-files $SOURCE_ROOT/../MLVCircularProgressView/.";
+		};
+		CD51C266182FB2FD009C6BAD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Remove tmp directory\"\ncd /tmp\nrm -rf MLVCricularProgressView\n\necho \"Clone documentation branch\"\ngit clone -b gh-pages https://github.com/mattiaslevin/MLVCircularProgressView.git\n\necho \"Copy new documentation into place\"\ncd MLVCricularProgressView\nrm -rf docs\ncp -rv $SOURCE_ROOT/Doc docs\n\necho \"Commit and push changes\"\ngit commit -am \"Update API documentation\"\ngit push origin gh-pages";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD51C264182FAF30009C6BAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD51C25B182FAF13009C6BAD /* Generate documentation */;
+			targetProxy = CD51C263182FAF30009C6BAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CD51C259182FAEEB009C6BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		CD51C25A182FAEEB009C6BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		CD51C25D182FAF13009C6BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD51C25E182FAF13009C6BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CD51C261182FAF28009C6BAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD51C262182FAF28009C6BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD51C258182FAEEB009C6BAD /* Build configuration list for PBXProject "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD51C259182FAEEB009C6BAD /* Debug */,
+				CD51C25A182FAEEB009C6BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD51C25C182FAF13009C6BAD /* Build configuration list for PBXAggregateTarget "Generate documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD51C25D182FAF13009C6BAD /* Debug */,
+				CD51C25E182FAF13009C6BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD51C260182FAF28009C6BAD /* Build configuration list for PBXAggregateTarget "Upload documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD51C261182FAF28009C6BAD /* Debug */,
+				CD51C262182FAF28009C6BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD51C255182FAEEB009C6BAD /* Project object */;
+}

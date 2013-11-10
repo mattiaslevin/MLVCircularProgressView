@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ A progress view that mimics the behaviour of the download progress indicator in the iOS7 Apps Store app.
+ */
 @interface MLVCircularProgressView : UIView
+
+/**
+ @name Configuration
+ */
 
 /**
  The colour of the drawn shape.
@@ -26,6 +33,10 @@
 @property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation;
 
 /**
+ @name Manage progress
+ */
+
+/**
  Show an unknown progress animation until the first actual progress is reported.
  @see progress
  */
@@ -36,6 +47,8 @@
  Show an unknown progress animation for a minimum duration or until the first actual progress is reported.
  
  Use this method to make sure the unknown progress animation is shown a minimum amount of time for the user regardless of how fast the first progress is reported.
+ 
+ @param minimumDuration The minum duration the unknown progress animation should be shown regadless of how fast the first progress is reported
  */
 - (void)startUnknownProgressWithMinimumDuration:(NSTimeInterval)minimumDuration;
 
@@ -60,7 +73,7 @@
  Use this method to guarantee that the finished progress is shown a minimum amount of time for the user after the progress completed.
  
  @param completionBlock The completion block to run
- @param withDelay The delay before calling the completion block
+ @param delay The delay before calling the completion block
  */
 - (void)completionBlock:(void(^)(void))completionBlock withDelay:(NSTimeInterval)delay;
 

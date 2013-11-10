@@ -16,6 +16,7 @@
 		CD51C223182F9710009C6BAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD51C221182F9710009C6BAD /* Main.storyboard */; };
 		CD51C226182F9710009C6BAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD51C225182F9710009C6BAD /* ViewController.m */; };
 		CD51C228182F9710009C6BAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD51C227182F9710009C6BAD /* Images.xcassets */; };
+		CD51C253182FAE7B009C6BAD /* MLVCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD51C252182FAE7B009C6BAD /* MLVCircularProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		CD51C225182F9710009C6BAD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CD51C227182F9710009C6BAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD51C22E182F9710009C6BAD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CD51C251182FAE7B009C6BAD /* MLVCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVCircularProgressView.h; sourceTree = "<group>"; };
+		CD51C252182FAE7B009C6BAD /* MLVCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVCircularProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		CD51C215182F9710009C6BAD /* PerformanceDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CD51C250182FAE7B009C6BAD /* MLVCircularProgressView */,
 				CD51C21E182F9710009C6BAD /* AppDelegate.h */,
 				CD51C21F182F9710009C6BAD /* AppDelegate.m */,
 				CD51C221182F9710009C6BAD /* Main.storyboard */,
@@ -101,6 +105,16 @@
 				CD51C21D182F9710009C6BAD /* PerformanceDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD51C250182FAE7B009C6BAD /* MLVCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				CD51C251182FAE7B009C6BAD /* MLVCircularProgressView.h */,
+				CD51C252182FAE7B009C6BAD /* MLVCircularProgressView.m */,
+			);
+			name = MLVCircularProgressView;
+			path = ../../MLVCircularProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD51C253182FAE7B009C6BAD /* MLVCircularProgressView.m in Sources */,
 				CD51C226182F9710009C6BAD /* ViewController.m in Sources */,
 				CD51C220182F9710009C6BAD /* AppDelegate.m in Sources */,
 				CD51C21C182F9710009C6BAD /* main.m in Sources */,
@@ -315,6 +330,7 @@
 				CD51C240182F9710009C6BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

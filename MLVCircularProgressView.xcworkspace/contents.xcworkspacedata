@@ -17,4 +17,7 @@
    <FileRef
       location = "group:PerformanceDemo/PerformanceDemo.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Documentation/Documentation.xcodeproj">
+   </FileRef>
 </Workspace>
