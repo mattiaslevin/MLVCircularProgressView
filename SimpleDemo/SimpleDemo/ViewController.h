@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MLVCircularProgressView.h"
 
 @interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet MLVCircularProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 @end

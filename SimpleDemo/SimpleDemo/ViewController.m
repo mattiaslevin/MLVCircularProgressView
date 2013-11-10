@@ -8,22 +8,71 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
 
+
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  [self startProgress];
+  
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)startProgress {
+  
+  __weak typeof(self)weakSelf = self;
+  
+  [self.progressView startUnknownProgress];
+  
+  [self.progressView completionBlock:^{
+    NSLog(@"Download finsihed");
+    
+    [self startProgress];
+    
+  } withDelay:2.0];
+  
+  double delayInSeconds = 1.2;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    
+    [weakSelf updateProgress:0.0];
+    
+  });
+  
 }
+
+
+- (void)updateProgress:(CGFloat)progress {
+  
+  if (progress >= 1.0) {
+    // Lets stop
+    NSLog(@"Stop updating progress");
+    self.progressView.progress = 1.0;
+    return;
+  } else {
+    self.progressView.progress = progress;
+  }
+  
+  __weak typeof(self)weakSelf = self;
+  
+  double delayInSeconds = 1.0 + arc4random_uniform(100) / 100.0;
+  dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+  dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    
+    CGFloat newProgress = progress + (arc4random_uniform(15) / 100.0);
+    weakSelf.progressLabel.text = [NSString stringWithFormat:@"%f", newProgress];
+    [weakSelf updateProgress:newProgress];
+    
+  });
+  
+}
+
 
 @end
