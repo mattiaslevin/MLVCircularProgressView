@@ -11,17 +11,17 @@
 @interface MLVCircularProgressView : UIView
 
 /**
- The color of the drawn shape.
+ The colour of the drawn shape.
  
  Use the UIView properties to set other standard view behaviour.
  */
 @property (nonatomic, strong) UIColor *shapeColor;
 
 /**
- The minimum progress change between two succesivly reported progress to trigger an animation.
+ The minimum progress change between two successively reported progress to trigger an animation.
  
- A lower value will improve animation smothness also increate the CPU needed.
- Value should be between 0.01 and 0.99. Default value is 0.1.
+ A lower value will allow the animation to follow the actual process closer but will also increase the CPU needed.
+ Value should be between 0.01 and 0.99. Default value is 0.1 and should be sufficient in most cases. A developer could consider increasing the value to 0.2 if many progress animations are shown at the same time.
  */
 @property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation;
 
@@ -33,9 +33,9 @@
 
 
 /**
- Show an unknown progress animation for a minimum duration or until the first actual progess is reported.
+ Show an unknown progress animation for a minimum duration or until the first actual progress is reported.
  
- Use this method to make sure the unknow progress animation is shown a minimum amount of time for the user regardless of how fast the first progress is reported.
+ Use this method to make sure the unknown progress animation is shown a minimum amount of time for the user regardless of how fast the first progress is reported.
  */
 - (void)startUnknownProgressWithMinimumDuration:(NSTimeInterval)minimumDuration;
 
@@ -57,7 +57,7 @@
 /**
  The completion block will be called after the provided delay when the progress reach 1.0 and the animation finish.
  
- Use this method to guarentee that the finished progress is shonw a minimum amount of time for the user after the progress compeleted.
+ Use this method to guarantee that the finished progress is shown a minimum amount of time for the user after the progress completed.
  
  @param completionBlock The completion block to run
  @param withDelay The delay before calling the completion block
@@ -72,8 +72,8 @@
 - (void)pauseProgress;
 
 /**
- Reset all onging progress.
- The next reported animation will restart the progess animation from zero progress.
+ Reset all ongoing progress.
+ The next reported animation will restart the progress animation from zero progress.
  */
 - (void)resetProgress;
 
