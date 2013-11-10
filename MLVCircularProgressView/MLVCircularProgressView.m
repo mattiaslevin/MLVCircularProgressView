@@ -58,68 +58,13 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 
 
 - (void)commonInit {
-  
   _minimumProgressChangeToTriggerAnimation = 0.1;
-  
   _shapeColor = [UIColor blueColor];
   
-  // Progress unkown layer
-  _progressUnknownLayer = [CAShapeLayer layer];
-  _progressUnknownLayer.frame = self.bounds;
-  _progressUnknownLayer.backgroundColor = nil;
-  _progressUnknownLayer.fillColor = nil;
-  _progressUnknownLayer.strokeColor = _shapeColor.CGColor;
-  _progressUnknownLayer.lineWidth = 1.0;
-  CGRect bounds = CGRectInset(self.bounds, 1.0, 1.0);
-  CGFloat radius = floorf((MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds))) / 2.0);
-  CGPoint center = CGPointMake(floorf(CGRectGetMidX(bounds)), floorf(CGRectGetMidY(bounds)));
-  UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center
-                                                      radius:radius
-                                                  startAngle:-M_PI_2
-                                                    endAngle:(2.0 * M_PI - M_PI_2 - 0.5)
-                                                   clockwise:YES];
-  _progressUnknownLayer.path = path.CGPath;
-  
-  // Background layer
-  _progressBackgroundLayer = [CAShapeLayer layer];
-  _progressBackgroundLayer.frame = self.bounds;
-  _progressBackgroundLayer.backgroundColor = nil;
-  _progressBackgroundLayer.fillColor = nil;
-  _progressBackgroundLayer.strokeColor = _shapeColor.CGColor;
-  _progressBackgroundLayer.lineWidth = 1.0;
-  bounds = CGRectInset(self.bounds, 1.0, 1.0);
-  radius = floorf((MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds))) / 2.0);
-  center = CGPointMake(floorf(CGRectGetMidX(bounds)), floorf(CGRectGetMidY(bounds)));
-  path = [UIBezierPath bezierPathWithArcCenter:center
-                                        radius:radius
-                                    startAngle:-M_PI_2
-                                      endAngle:(2.0 * M_PI - M_PI_2)
-                                     clockwise:YES];
-  _progressBackgroundLayer.path = path.CGPath;
-  CAShapeLayer *squareBackgrounfLayer = [CAShapeLayer layer];
-  squareBackgrounfLayer.frame = self.bounds;
-  squareBackgrounfLayer.backgroundColor = nil;
-  squareBackgrounfLayer.fillColor = _shapeColor.CGColor;
-  CGFloat squareSize = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 5.0);
-  path = [UIBezierPath bezierPathWithRect:CGRectInset(bounds, CGRectGetMidX(bounds) - squareSize, CGRectGetMidY(bounds) - squareSize)];
-  squareBackgrounfLayer.path = path.CGPath;
-  [_progressBackgroundLayer addSublayer:squareBackgrounfLayer];
-  
-  // Progress layer
-  _progressLayer = [CAShapeLayer layer];
-  _progressLayer.frame = self.bounds;
-  _progressLayer.backgroundColor = nil;
-  _progressLayer.fillColor = nil;
-  _progressLayer.strokeColor = _shapeColor.CGColor;
-  _progressLayer.lineWidth = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 10.0) + 0.5;
-  radius -= _progressLayer.lineWidth / 2.0;
-  path = [UIBezierPath bezierPathWithArcCenter:center
-                                        radius:radius
-                                    startAngle:-M_PI_2
-                                      endAngle:(2.0 * M_PI - M_PI_2)
-                                     clockwise:YES];
-  _progressLayer.path = path.CGPath;
-  
+//  // Create layer so they are ready when they need to be used
+//  CAShapeLayer *layer = self.progressUnknownLayer;
+//  layer = self.progressBackgroundLayer;
+//  layer = self.progressLayer;
 }
 
 
@@ -139,8 +84,24 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 }
 
 
-- (void)stopProgress {
+- (void)pauseProgress {
   [self.layer removeAllAnimations];
+}
+
+
+- (void)resetProgress {
+  
+  [self pauseProgress];
+  
+  self.progress = 0.0;
+  self.previousReportedProgressTime = nil;
+  self.numberOfUsedAnimations = 0.0;
+  
+  [self.progressUnknownLayer removeFromSuperlayer];
+  [self.progressBackgroundLayer removeFromSuperlayer];
+  [self.progressLayer removeFromSuperlayer];
+  self.progressLayer = nil;
+  
 }
 
 
@@ -283,7 +244,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     
     [CATransaction commit];
     
-    self.numberOfUsedAnimations = self.numberOfUsedAnimations + 1;
+    self.numberOfUsedAnimations += 1;
     
   } else {
     
@@ -312,6 +273,8 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 }
 
 
+#pragma mark - Properties
+
 - (void)setShapeColor:(UIColor *)color {
   _shapeColor = color;
   
@@ -319,6 +282,84 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   self.progressBackgroundLayer.strokeColor = _shapeColor.CGColor;
   self.progressLayer.strokeColor = _shapeColor.CGColor;
   
+}
+
+
+- (CAShapeLayer*)progressUnknownLayer {
+  if (!_progressUnknownLayer) {
+    _progressUnknownLayer = [CAShapeLayer layer];
+    _progressUnknownLayer.frame = self.bounds;
+    _progressUnknownLayer.backgroundColor = nil;
+    _progressUnknownLayer.fillColor = nil;
+    _progressUnknownLayer.strokeColor = _shapeColor.CGColor;
+    _progressUnknownLayer.lineWidth = 1.0;
+    CGRect bounds = CGRectInset(self.bounds, 1.0, 1.0);
+    CGFloat radius = floorf((MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds))) / 2.0);
+    CGPoint center = CGPointMake(floorf(CGRectGetMidX(bounds)), floorf(CGRectGetMidY(bounds)));
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center
+                                                        radius:radius
+                                                    startAngle:-M_PI_2
+                                                      endAngle:(2.0 * M_PI - M_PI_2 - 0.5)
+                                                     clockwise:YES];
+    _progressUnknownLayer.path = path.CGPath;
+  }
+
+  return _progressUnknownLayer;
+}
+
+
+- (CAShapeLayer*)progressBackgroundLayer {
+  if (!_progressBackgroundLayer) {
+    _progressBackgroundLayer = [CAShapeLayer layer];
+    _progressBackgroundLayer.frame = self.bounds;
+    _progressBackgroundLayer.backgroundColor = nil;
+    _progressBackgroundLayer.fillColor = nil;
+    _progressBackgroundLayer.strokeColor = _shapeColor.CGColor;
+    _progressBackgroundLayer.lineWidth = 1.0;
+    CGRect bounds = CGRectInset(self.bounds, 1.0, 1.0);
+    CGFloat radius = floorf((MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds))) / 2.0);
+    CGPoint center = CGPointMake(floorf(CGRectGetMidX(bounds)), floorf(CGRectGetMidY(bounds)));
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center
+                                                        radius:radius
+                                                    startAngle:-M_PI_2
+                                                      endAngle:(2.0 * M_PI - M_PI_2)
+                                                     clockwise:YES];
+    _progressBackgroundLayer.path = path.CGPath;
+    CAShapeLayer *squareBackgrounfLayer = [CAShapeLayer layer];
+    squareBackgrounfLayer.frame = self.bounds;
+    squareBackgrounfLayer.backgroundColor = nil;
+    squareBackgrounfLayer.fillColor = _shapeColor.CGColor;
+    CGFloat squareSize = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 5.0);
+    path = [UIBezierPath bezierPathWithRect:CGRectInset(bounds, CGRectGetMidX(bounds) - squareSize, CGRectGetMidY(bounds) - squareSize)];
+    squareBackgrounfLayer.path = path.CGPath;
+    [_progressBackgroundLayer addSublayer:squareBackgrounfLayer];
+
+  }
+  
+  return _progressBackgroundLayer;
+}
+
+
+- (CAShapeLayer*)progressLayer {
+  if (!_progressLayer) {
+    _progressLayer = [CAShapeLayer layer];
+    _progressLayer.frame = self.bounds;
+    _progressLayer.backgroundColor = nil;
+    _progressLayer.fillColor = nil;
+    _progressLayer.strokeColor = _shapeColor.CGColor;
+    CGRect bounds = CGRectInset(self.bounds, 1.0, 1.0);
+    _progressLayer.lineWidth = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 10.0) + 0.5;
+    CGFloat radius = floorf((MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds))) / 2.0) - _progressLayer.lineWidth / 2.0;
+    CGPoint center = CGPointMake(floorf(CGRectGetMidX(bounds)), floorf(CGRectGetMidY(bounds)));
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center
+                                                        radius:radius
+                                                    startAngle:-M_PI_2
+                                                      endAngle:(2.0 * M_PI - M_PI_2)
+                                                     clockwise:YES];
+    _progressLayer.path = path.CGPath;
+  }
+  
+  return _progressLayer;
 }
 
 

@@ -34,6 +34,7 @@
   [self.progressView completionBlock:^{
     NSLog(@"Download finsihed");
     
+    [self.progressView resetProgress];
     [self startProgress];
     
   } withDelay:2.0];
@@ -54,9 +55,12 @@
   if (progress >= 1.0) {
     // Lets stop
     NSLog(@"Stop updating progress");
-    self.progressView.progress = 1.0;
+    progress = 1.0;
+    self.progressLabel.text = [NSString stringWithFormat:@"%.2f", progress];
+    self.progressView.progress = progress;
     return;
   } else {
+    self.progressLabel.text = [NSString stringWithFormat:@"%.2f", progress];
     self.progressView.progress = progress;
   }
   
@@ -67,7 +71,6 @@
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     
     CGFloat newProgress = progress + (arc4random_uniform(15) / 100.0);
-    weakSelf.progressLabel.text = [NSString stringWithFormat:@"%f", newProgress];
     [weakSelf updateProgress:newProgress];
     
   });

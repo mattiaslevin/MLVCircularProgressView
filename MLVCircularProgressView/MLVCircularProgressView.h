@@ -53,6 +53,7 @@
 */
 - (void)completionBlock:(void(^)(void))completionBlock;
 
+
 /**
  The completion block will be called after the provided delay when the progress reach 1.0 and the animation finish.
  
@@ -63,9 +64,18 @@
  */
 - (void)completionBlock:(void(^)(void))completionBlock withDelay:(NSTimeInterval)delay;
 
+
 /**
- Stop all ongoing progress animations.
+ Pause an ongoing progress.
+ The next reported progress will restart the progress animation from the paused progress.
  */
-- (void)stopProgress;
+- (void)pauseProgress;
+
+/**
+ Reset all onging progress.
+ The next reported animation will restart the progess animation from zero progress.
+ */
+- (void)resetProgress;
+
 
 @end
