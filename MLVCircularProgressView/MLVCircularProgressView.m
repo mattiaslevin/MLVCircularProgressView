@@ -61,6 +61,29 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   _minimumProgressChangeToTriggerAnimation = 0.1;
   _shapeColor = [UIColor blueColor];
   
+  __weak typeof(self)weakSelf = self;
+  
+  _animationDuration = ^ (CGFloat progress, CGFloat increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, CGFloat *animatedProgress) {
+    
+    CGFloat bestGuessNextProgress;
+    CFTimeInterval animationDuration;
+    if (weakSelf.isFirstProgess) {
+      bestGuessNextProgress = progress + weakSelf.minimumProgressChangeToTriggerAnimation;
+      animationDuration = weakSelf.minimumProgressChangeToTriggerAnimation / (increaseSinceLastProgress / durationSinceLastProgress);
+    } else {
+      bestGuessNextProgress = progress + increaseSinceLastProgress;
+      animationDuration = durationSinceLastProgress;
+    }
+    
+    if (bestGuessNextProgress > 1.0) {
+      bestGuessNextProgress = 1.0;
+    }
+    
+    *animatedProgress = bestGuessNextProgress;
+    return animationDuration;
+    
+  };
+  
 //  // Create layer so they are ready when they need to be used
 //  CAShapeLayer *layer = self.progressUnknownLayer;
 //  layer = self.progressBackgroundLayer;
@@ -138,32 +161,19 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   } else if ((progress - _progress >= self.minimumProgressChangeToTriggerAnimation) || self.isFirstProgess) {
     // Show progress with animation
     
-    CGFloat deltaProgess = progress - _progress;
+    CGFloat increaseSinceLastProgress = progress - _progress;
     _progress = progress;
     
     NSTimeInterval durationSinceLastProgress = fabs([self.previousReportedProgressTime timeIntervalSinceNow]);
     self.previousReportedProgressTime = [NSDate date];
     
-    CGFloat bestGuessNextProgress;
-    CFTimeInterval animationDuration;
-    if (self.isFirstProgess) {
-      bestGuessNextProgress = _progress + self.minimumProgressChangeToTriggerAnimation;
-      animationDuration = self.minimumProgressChangeToTriggerAnimation / (deltaProgess / durationSinceLastProgress);
-    } else {
-      bestGuessNextProgress = _progress + deltaProgess;
-      animationDuration = durationSinceLastProgress;
-    }
-    
-    if (bestGuessNextProgress > 1.0) {
-      bestGuessNextProgress = 1.0;
-      animationDuration = durationSinceLastProgress;
-    }
-    
-    NSLog(@"Best guess next progress %f, animation duration %f", bestGuessNextProgress, animationDuration);
+    CGFloat animatedProgress = progress;
+    NSTimeInterval animationDuration = self.animationDuration(progress, increaseSinceLastProgress, durationSinceLastProgress, &animatedProgress);
+    NSLog(@"Animated progress %f, duration %f", animatedProgress, animationDuration);
     
     self.isFirstProgess = NO;
     
-    [self updateProgress:bestGuessNextProgress withDuration:animationDuration];
+    [self updateProgress:animatedProgress withDuration:animationDuration];
     
   }
   

@@ -20,6 +20,13 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+//  self.progressView.animationDuration = ^ (CGFloat progress,
+//                                           CGFloat increaseSinceLastProgress,
+//                                           NSTimeInterval durationSinceLastProgress,
+//                                           CGFloat *animatedProgress) {
+//    return 0.3;
+//  };
+  
   [self startProgress];
   
 }

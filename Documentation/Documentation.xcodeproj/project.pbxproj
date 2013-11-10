@@ -99,7 +99,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Remove tmp directory\"\ncd /tmp\nrm -rf MLVCricularProgressView\n\necho \"Clone documentation branch\"\ngit clone -b gh-pages https://github.com/mattiaslevin/MLVCircularProgressView.git\n\necho \"Copy new documentation into place\"\ncd MLVCricularProgressView\nrm -rf docs\ncp -rv $SOURCE_ROOT/Doc docs\n\necho \"Commit and push changes\"\ngit commit -am \"Update API documentation\"\ngit push origin gh-pages";
+			shellScript = "echo \"Remove tmp directory\"\ncd /tmp\nrm -rf MLVCircularProgressView\n\necho \"Clone documentation branch\"\ngit clone -b gh-pages https://github.com/mattiaslevin/MLVCircularProgressView.git\n\necho \"Copy new documentation into place\"\ncd MLVCircularProgressView\nrm -rf docs\ncp -rv $SOURCE_ROOT/Doc docs\n\necho \"Commit and push changes\"\ngit commit -am \"Update API documentation\"\ngit push origin gh-pages";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -171,6 +171,7 @@
 				CD51C25E182FAF13009C6BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD51C260182FAF28009C6BAD /* Build configuration list for PBXAggregateTarget "Upload documentation" */ = {
 			isa = XCConfigurationList;
@@ -179,6 +180,7 @@
 				CD51C262182FAF28009C6BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
