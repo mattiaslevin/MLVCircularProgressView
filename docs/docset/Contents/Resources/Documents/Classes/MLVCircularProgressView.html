@@ -59,13 +59,13 @@
 	
 	<option value="//api/name/completionBlock:withDelay:">&nbsp;&nbsp;&nbsp;&nbsp;- completionBlock:withDelay:</option>
 	
-	<option value="//api/name/pauseProgress">&nbsp;&nbsp;&nbsp;&nbsp;- pauseProgress</option>
-	
 	<option value="//api/name/resetProgress">&nbsp;&nbsp;&nbsp;&nbsp;- resetProgress</option>
 	
 	<option value="//api/name/startUnknownProgress">&nbsp;&nbsp;&nbsp;&nbsp;- startUnknownProgress</option>
 	
 	<option value="//api/name/startUnknownProgressWithMinimumDuration:">&nbsp;&nbsp;&nbsp;&nbsp;- startUnknownProgressWithMinimumDuration:</option>
+	
+	<option value="//api/name/stopProgress">&nbsp;&nbsp;&nbsp;&nbsp;- stopProgress</option>
 	
 	
 	
@@ -115,13 +115,13 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/completionBlock:withDelay:">completionBlock:withDelay:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseProgress">pauseProgress</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetProgress">resetProgress</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startUnknownProgress">startUnknownProgress</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startUnknownProgressWithMinimumDuration:">startUnknownProgressWithMinimumDuration:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopProgress">stopProgress</a></span></li>
 	
 </ul></li>
 
@@ -242,8 +242,8 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/pauseProgress">&ndash;&nbsp;pauseProgress</a></code>
-		<span class="tooltip"><p>Pause an ongoing progress.<br/>
+		<code><a href="#//api/name/stopProgress">&ndash;&nbsp;stopProgress</a></code>
+		<span class="tooltip"><p>Stop an ongoing progress.<br/>
 The next reported progress will restart the progress animation from the paused progress.</p></span>
 	</span>
 	
@@ -549,43 +549,6 @@ Value should be between 0.01 and 0.99. Default value is 0.1 and should be suffic
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/pauseProgress" title="pauseProgress"></a>
-	<h3 class="subsubtitle method-title">pauseProgress</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Pause an ongoing progress.<br/>
-The next reported progress will restart the progress animation from the paused progress.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)pauseProgress</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/resetProgress" title="resetProgress"></a>
 	<h3 class="subsubtitle method-title">resetProgress</h3>
 	
@@ -703,6 +666,43 @@ The next reported animation will restart the progress animation from zero progre
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Use this method to make sure the unknown progress animation is shown a minimum amount of time for the user regardless of how fast the first progress is reported.</p>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stopProgress" title="stopProgress"></a>
+	<h3 class="subsubtitle method-title">stopProgress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Stop an ongoing progress.<br/>
+The next reported progress will restart the progress animation from the paused progress.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)stopProgress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -211,15 +211,15 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/pauseProgress</TokenIdentifier>
-			<Abstract type="html">Pause an ongoing progress.
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/stopProgress</TokenIdentifier>
+			<Abstract type="html">Stop an ongoing progress.
 The next reported progress will restart the progress animation from the paused progress.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>- (void)pauseProgress</Declaration>
+			<Declaration>- (void)stopProgress</Declaration>
 			
 			
-			<Anchor>//api/name/pauseProgress</Anchor>
+			<Anchor>//api/name/stopProgress</Anchor>
 		</Token>
 		
 		<Token>
