@@ -11,4 +11,7 @@
          location = "group:MLVCircularProgressView.m">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:SimpleDemo/SimpleDemo.xcodeproj">
+   </FileRef>
 </Workspace>
