@@ -40,6 +40,8 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/animationDuration">&nbsp;&nbsp;&nbsp;&nbsp;animationDuration</option>
+	
 	<option value="//api/name/minimumProgressChangeToTriggerAnimation">&nbsp;&nbsp;&nbsp;&nbsp;minimumProgressChangeToTriggerAnimation</option>
 	
 	<option value="//api/name/progress">&nbsp;&nbsp;&nbsp;&nbsp;progress</option>
@@ -92,6 +94,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationDuration">animationDuration</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minimumProgressChangeToTriggerAnimation">minimumProgressChangeToTriggerAnimation</a></span></li>
 	
@@ -186,6 +190,13 @@
 	</span>
 	<span class="task-item-suffix">property</span>
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationDuration">&nbsp;&nbsp;animationDuration</a></code>
+		<span class="tooltip"><p>Set a custom block that implements your own algorithm for calculating the animation duration and optionally adjusting the target progress between two reported progress values. This block will only be called when a progress change becomes bigger then the minimumProgressChangeToTriggerAnimation value.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -257,6 +268,49 @@ The next reported animation will restart the progress animation from zero progre
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/animationDuration" title="animationDuration"></a>
+	<h3 class="subsubtitle method-title">animationDuration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set a custom block that implements your own algorithm for calculating the animation duration and optionally adjusting the target progress between two reported progress values. This block will only be called when a progress change becomes bigger then the minimumProgressChangeToTriggerAnimation value.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( CGFloat progress , CGFloat increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , CGFloat *animatedProgress ) animationDuration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The default implementation will naively assume that the next reported progress will have the same increase and velocity as between the current and previous progress. The algorithm will calculate the animation duration based on the velocity between the the current and previous progresses and adjust the animated progress to a future  bigger value based on the calculated velocity. The animate progress can thus be bigger or smaller when the next progress is fired depending on if the velocity decreased or increased.</p>
+
+<p>A custom algorithm could for instance provide a constant animation duration and never let the animated progress grow bigger then the last reported progress. Or an algorithm could calculate the duration based an an average velocity since the start of the animation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/minimumProgressChangeToTriggerAnimation" title="minimumProgressChangeToTriggerAnimation"></a>
@@ -634,7 +688,7 @@ The next reported animation will restart the progress animation from zero progre
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>minimumDuration</em></dt>
-			<dd><p>The minum duration the unknown progress animation should be shown regadless of how fast the first progress is reported</p></dd>
+			<dd><p>The minimum duration the unknown progress animation should be shown regadless of how fast the first progress is reported</p></dd>
 		</dl>
 		
 	</div>
