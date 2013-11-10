@@ -37,7 +37,7 @@
  
  The default implementation will naively assume that the next reported progress will have the same increase and velocity as between the current and previous progress. The algorithm will calculate the animation duration based on the velocity between the the current and previous progresses and adjust the animated progress to a future  bigger value based on the calculated velocity. The animate progress can thus be bigger or smaller when the next progress is fired depending on if the velocity decreased or increased.
  
- A customer algorithm could for instance provide a constant animation duration and never let the animated progress grow bigger then the last reported progress. Or an algorithm could calculate the duration based an an average velocity since the start of the animation (and not just between the current and previous progress).
+ A custom algorithm could for instance provide a constant animation duration and never let the animated progress grow bigger then the last reported progress. Or an algorithm could calculate the duration based an an average velocity since the start of the animation.
  
  */
 @property (nonatomic, copy) NSTimeInterval (^animationDuration)(CGFloat progress, CGFloat increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, CGFloat *animatedProgress);
