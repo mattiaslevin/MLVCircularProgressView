@@ -1,0 +1,780 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>MLVCircularProgressView Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">MLVCircularProgressView </a></h1>
+				<a id="developerHome" href="../index.html">Wadpam</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MLVCircularProgressView Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/minimumProgressChangeToTriggerAnimation">&nbsp;&nbsp;&nbsp;&nbsp;minimumProgressChangeToTriggerAnimation</option>
+	
+	<option value="//api/name/progress">&nbsp;&nbsp;&nbsp;&nbsp;progress</option>
+	
+	<option value="//api/name/shapeColor">&nbsp;&nbsp;&nbsp;&nbsp;shapeColor</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/completionBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- completionBlock:</option>
+	
+	<option value="//api/name/completionBlock:withDelay:">&nbsp;&nbsp;&nbsp;&nbsp;- completionBlock:withDelay:</option>
+	
+	<option value="//api/name/pauseProgress">&nbsp;&nbsp;&nbsp;&nbsp;- pauseProgress</option>
+	
+	<option value="//api/name/resetProgress">&nbsp;&nbsp;&nbsp;&nbsp;- resetProgress</option>
+	
+	<option value="//api/name/startUnknownProgress">&nbsp;&nbsp;&nbsp;&nbsp;- startUnknownProgress</option>
+	
+	<option value="//api/name/startUnknownProgressWithMinimumDuration:">&nbsp;&nbsp;&nbsp;&nbsp;- startUnknownProgressWithMinimumDuration:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Configuration">Configuration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Manage progress">Manage progress</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minimumProgressChangeToTriggerAnimation">minimumProgressChangeToTriggerAnimation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/progress">progress</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shapeColor">shapeColor</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/completionBlock:">completionBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/completionBlock:withDelay:">completionBlock:withDelay:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseProgress">pauseProgress</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resetProgress">resetProgress</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startUnknownProgress">startUnknownProgress</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startUnknownProgressWithMinimumDuration:">startUnknownProgressWithMinimumDuration:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="MLVCircularProgressView Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MLVCircularProgressView Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIView</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MLVCircularProgressView.h<br />MLVCircularProgressView.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A progress view that mimics the behaviour of the download progress indicator in the iOS7 Apps Store app.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Configuration" name="task_Configuration"></a>
+						<h3 class="subsubtitle task-title">Configuration</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shapeColor">&nbsp;&nbsp;shapeColor</a></code>
+		<span class="tooltip"><p>The colour of the drawn shape.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/minimumProgressChangeToTriggerAnimation">&nbsp;&nbsp;minimumProgressChangeToTriggerAnimation</a></code>
+		<span class="tooltip"><p>The minimum progress change between two successively reported progress to trigger an animation.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Manage progress" name="task_Manage progress"></a>
+						<h3 class="subsubtitle task-title">Manage progress</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startUnknownProgress">&ndash;&nbsp;startUnknownProgress</a></code>
+		<span class="tooltip"><p>Show an unknown progress animation until the first actual progress is reported.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/startUnknownProgressWithMinimumDuration:">&ndash;&nbsp;startUnknownProgressWithMinimumDuration:</a></code>
+		<span class="tooltip"><p>Show an unknown progress animation for a minimum duration or until the first actual progress is reported.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/progress">&nbsp;&nbsp;progress</a></code>
+		<span class="tooltip"><p>Set the progress of the progress view.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/completionBlock:">&ndash;&nbsp;completionBlock:</a></code>
+		<span class="tooltip"><p>The completion block will be called when the progress reach 1.0 and the animation finish.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/completionBlock:withDelay:">&ndash;&nbsp;completionBlock:withDelay:</a></code>
+		<span class="tooltip"><p>The completion block will be called after the provided delay when the progress reach 1.0 and the animation finish.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pauseProgress">&ndash;&nbsp;pauseProgress</a></code>
+		<span class="tooltip"><p>Pause an ongoing progress.<br/>
+The next reported progress will restart the progress animation from the paused progress.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resetProgress">&ndash;&nbsp;resetProgress</a></code>
+		<span class="tooltip"><p>Reset all ongoing progress.<br/>
+The next reported animation will restart the progress animation from zero progress.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/minimumProgressChangeToTriggerAnimation" title="minimumProgressChangeToTriggerAnimation"></a>
+	<h3 class="subsubtitle method-title">minimumProgressChangeToTriggerAnimation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The minimum progress change between two successively reported progress to trigger an animation.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A lower value will allow the animation to follow the actual process closer but will also increase the CPU needed.<br/>
+Value should be between 0.01 and 0.99. Default value is 0.1 and should be sufficient in most cases. A developer could consider increasing the value to 0.2 if many progress animations are shown at the same time.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/progress" title="progress"></a>
+	<h3 class="subsubtitle method-title">progress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set the progress of the progress view.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat progress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The first reported progress value will not be animated. If you like the first reported progress to be animated, make sure you set the progress to 0.0 before the first actual progress value is set.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shapeColor" title="shapeColor"></a>
+	<h3 class="subsubtitle method-title">shapeColor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The colour of the drawn shape.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIColor *shapeColor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Use the UIView properties to set other standard view behaviour.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/completionBlock:" title="completionBlock:"></a>
+	<h3 class="subsubtitle method-title">completionBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The completion block will be called when the progress reach 1.0 and the animation finish.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)completionBlock:(void ( ^ ) ( void ))<em>completionBlock</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>The completion block to run</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/completionBlock:withDelay:" title="completionBlock:withDelay:"></a>
+	<h3 class="subsubtitle method-title">completionBlock:withDelay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The completion block will be called after the provided delay when the progress reach 1.0 and the animation finish.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)completionBlock:(void ( ^ ) ( void ))<em>completionBlock</em> withDelay:(NSTimeInterval)<em>delay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completionBlock</em></dt>
+			<dd><p>The completion block to run</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delay</em></dt>
+			<dd><p>The delay before calling the completion block</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Use this method to guarantee that the finished progress is shown a minimum amount of time for the user after the progress completed.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pauseProgress" title="pauseProgress"></a>
+	<h3 class="subsubtitle method-title">pauseProgress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pause an ongoing progress.<br/>
+The next reported progress will restart the progress animation from the paused progress.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)pauseProgress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resetProgress" title="resetProgress"></a>
+	<h3 class="subsubtitle method-title">resetProgress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Reset all ongoing progress.<br/>
+The next reported animation will restart the progress animation from zero progress.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resetProgress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startUnknownProgress" title="startUnknownProgress"></a>
+	<h3 class="subsubtitle method-title">startUnknownProgress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Show an unknown progress animation until the first actual progress is reported.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)startUnknownProgress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/progress">@property progress</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/startUnknownProgressWithMinimumDuration:" title="startUnknownProgressWithMinimumDuration:"></a>
+	<h3 class="subsubtitle method-title">startUnknownProgressWithMinimumDuration:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Show an unknown progress animation for a minimum duration or until the first actual progress is reported.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)startUnknownProgressWithMinimumDuration:(NSTimeInterval)<em>minimumDuration</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>minimumDuration</em></dt>
+			<dd><p>The minum duration the unknown progress animation should be shown regadless of how fast the first progress is reported</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Use this method to make sure the unknown progress animation is shown a minimum amount of time for the user regardless of how fast the first progress is reported.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">MLVCircularProgressView.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Wadpam. All rights reserved. (Last updated: 2013-11-10)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

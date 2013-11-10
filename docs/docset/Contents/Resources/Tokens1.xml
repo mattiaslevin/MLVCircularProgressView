@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MLVCircularProgressView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MLVCircularProgressView</TokenIdentifier>
+			<Abstract type="html">A progress view that mimics the behaviour of the download progress indicator in the iOS7 Apps Store app.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/setShapeColor:</TokenIdentifier>
+			<Abstract type="html">The colour of the drawn shape.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *shapeColor</Declaration>
+			
+			
+			<Anchor>//api/name/shapeColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/shapeColor</TokenIdentifier>
+			<Abstract type="html">The colour of the drawn shape.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *shapeColor</Declaration>
+			
+			
+			<Anchor>//api/name/shapeColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MLVCircularProgressView/shapeColor</TokenIdentifier>
+			<Abstract type="html">The colour of the drawn shape.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *shapeColor</Declaration>
+			
+			
+			<Anchor>//api/name/shapeColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/setMinimumProgressChangeToTriggerAnimation:</TokenIdentifier>
+			<Abstract type="html">The minimum progress change between two successively reported progress to trigger an animation.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation</Declaration>
+			
+			
+			<Anchor>//api/name/minimumProgressChangeToTriggerAnimation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/minimumProgressChangeToTriggerAnimation</TokenIdentifier>
+			<Abstract type="html">The minimum progress change between two successively reported progress to trigger an animation.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation</Declaration>
+			
+			
+			<Anchor>//api/name/minimumProgressChangeToTriggerAnimation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MLVCircularProgressView/minimumProgressChangeToTriggerAnimation</TokenIdentifier>
+			<Abstract type="html">The minimum progress change between two successively reported progress to trigger an animation.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat minimumProgressChangeToTriggerAnimation</Declaration>
+			
+			
+			<Anchor>//api/name/minimumProgressChangeToTriggerAnimation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/startUnknownProgress</TokenIdentifier>
+			<Abstract type="html">Show an unknown progress animation until the first actual progress is reported.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/MLVCircularProgressView/progress</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)startUnknownProgress</Declaration>
+			
+			
+			<Anchor>//api/name/startUnknownProgress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/startUnknownProgressWithMinimumDuration:</TokenIdentifier>
+			<Abstract type="html">Show an unknown progress animation for a minimum duration or until the first actual progress is reported.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>- (void)startUnknownProgressWithMinimumDuration:(NSTimeInterval)minimumDuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>minimumDuration</Name>
+					<Abstract type="html">The minum duration the unknown progress animation should be shown regadless of how fast the first progress is reported</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/startUnknownProgressWithMinimumDuration:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/setProgress:</TokenIdentifier>
+			<Abstract type="html">Set the progress of the progress view.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/progress</TokenIdentifier>
+			<Abstract type="html">Set the progress of the progress view.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MLVCircularProgressView/progress</TokenIdentifier>
+			<Abstract type="html">Set the progress of the progress view.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/completionBlock:</TokenIdentifier>
+			<Abstract type="html">The completion block will be called when the progress reach 1.0 and the animation finish.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>- (void)completionBlock:(void ( ^ ) ( void ))completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">The completion block to run</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/completionBlock:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/completionBlock:withDelay:</TokenIdentifier>
+			<Abstract type="html">The completion block will be called after the provided delay when the progress reach 1.0 and the animation finish.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>- (void)completionBlock:(void ( ^ ) ( void ))completionBlock withDelay:(NSTimeInterval)delay</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">The completion block to run</Abstract>
+				</Parameter><Parameter>
+					<Name>delay</Name>
+					<Abstract type="html">The delay before calling the completion block</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/completionBlock:withDelay:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/pauseProgress</TokenIdentifier>
+			<Abstract type="html">Pause an ongoing progress.
+The next reported progress will restart the progress animation from the paused progress.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>- (void)pauseProgress</Declaration>
+			
+			
+			<Anchor>//api/name/pauseProgress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MLVCircularProgressView/resetProgress</TokenIdentifier>
+			<Abstract type="html">Reset all ongoing progress.
+The next reported animation will restart the progress animation from zero progress.</Abstract>
+			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
+			
+			<Declaration>- (void)resetProgress</Declaration>
+			
+			
+			<Anchor>//api/name/resetProgress</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
