@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+//typedef NS_ENUM(NSInteger, ProgressState) {
+//  ProgressBefore,
+//  ProgressAfter,
+//  ProgressFailed
+//};
+
+
 /**
  A progress view that mimics the behaviour of the download progress indicator in the iOS7 Apps Store app.
  */
@@ -41,6 +49,17 @@
  
  */
 @property (nonatomic, copy) NSTimeInterval (^animationDuration)(CGFloat progress, CGFloat increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, CGFloat *animatedProgress);
+
+
+/**
+ Register and image to shown before the progress animation starts or after the animation finish.
+ 
+ Use this method to provider a default look before the actual download starts or after it finished.
+ @param image The image to use
+ @param state The progress state when the image should be used - before or after the animation or during faliure
+ */
+//- (void)setImage:(UIImage*)image forProgressState:(ProgressState)state;
+
 
 /**
  @name Manage progress
@@ -89,10 +108,11 @@
 
 
 /**
- Pause an ongoing progress.
+ Stop an ongoing progress.
  The next reported progress will restart the progress animation from the paused progress.
  */
-- (void)pauseProgress;
+- (void)stopProgress;
+
 
 /**
  Reset all ongoing progress.

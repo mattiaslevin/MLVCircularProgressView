@@ -107,14 +107,14 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 }
 
 
-- (void)pauseProgress {
+- (void)stopProgress {
   [self.layer removeAllAnimations];
 }
 
 
 - (void)resetProgress {
   
-  [self pauseProgress];
+  [self stopProgress];
   
   self.progress = 0.0;
   self.previousReportedProgressTime = nil;
@@ -179,9 +179,11 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   
 }
 
+
 - (void)completionBlock:(void(^)(void))completionBlock {
   [self completionBlock:completionBlock withDelay:0.0];
 }
+
 
 - (void)completionBlock:(void(^)(void))completionBlock withDelay:(NSTimeInterval)delay {
   self.completionBlock = completionBlock;
