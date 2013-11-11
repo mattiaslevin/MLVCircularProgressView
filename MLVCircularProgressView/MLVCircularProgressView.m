@@ -278,7 +278,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
       self.completionBlock();
     });
-  } else {
+  } else if (self.completionBlock){
     self.completionBlock();
   }
   
@@ -341,7 +341,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     squareBackgrounfLayer.frame = self.bounds;
     squareBackgrounfLayer.backgroundColor = nil;
     squareBackgrounfLayer.fillColor = _shapeColor.CGColor;
-    CGFloat squareSize = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) / 5.0);
+    CGFloat squareSize = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) * 0.2);
     path = [UIBezierPath bezierPathWithRect:CGRectInset(bounds, CGRectGetMidX(bounds) - squareSize, CGRectGetMidY(bounds) - squareSize)];
     squareBackgrounfLayer.path = path.CGPath;
     [_progressBackgroundLayer addSublayer:squareBackgrounfLayer];

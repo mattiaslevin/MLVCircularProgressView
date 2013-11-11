@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1A0725183177F6004334D8 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A0724183177F6004334D8 /* Item.m */; };
+		CD1A072818317ACE004334D8 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1A072718317ACE004334D8 /* ItemTableViewCell.m */; };
 		CD51C210182F9710009C6BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD51C20F182F9710009C6BAD /* Foundation.framework */; };
 		CD51C212182F9710009C6BAD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD51C211182F9710009C6BAD /* CoreGraphics.framework */; };
 		CD51C214182F9710009C6BAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD51C213182F9710009C6BAD /* UIKit.framework */; };
@@ -20,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD1A0723183177F6004334D8 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		CD1A0724183177F6004334D8 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		CD1A072618317ACE004334D8 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewCell.h; sourceTree = "<group>"; };
+		CD1A072718317ACE004334D8 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewCell.m; sourceTree = "<group>"; };
 		CD51C20C182F9710009C6BAD /* PerformanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerformanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD51C20F182F9710009C6BAD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD51C211182F9710009C6BAD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				CD51C250182FAE7B009C6BAD /* MLVCircularProgressView */,
+				CD1A0723183177F6004334D8 /* Item.h */,
+				CD1A0724183177F6004334D8 /* Item.m */,
+				CD1A072618317ACE004334D8 /* ItemTableViewCell.h */,
+				CD1A072718317ACE004334D8 /* ItemTableViewCell.m */,
 				CD51C21E182F9710009C6BAD /* AppDelegate.h */,
 				CD51C21F182F9710009C6BAD /* AppDelegate.m */,
 				CD51C221182F9710009C6BAD /* Main.storyboard */,
@@ -182,6 +192,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1A072818317ACE004334D8 /* ItemTableViewCell.m in Sources */,
+				CD1A0725183177F6004334D8 /* Item.m in Sources */,
 				CD51C253182FAE7B009C6BAD /* MLVCircularProgressView.m in Sources */,
 				CD51C226182F9710009C6BAD /* ViewController.m in Sources */,
 				CD51C220182F9710009C6BAD /* AppDelegate.m in Sources */,
