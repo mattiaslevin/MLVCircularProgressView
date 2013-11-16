@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MLVCircularProgressView"
-  s.version      = "0.9.0"
+  s.version      = "0.9.1"
   s.summary      = "A progress view that mimics the behaviour of the download progress indicator in the iOS7 Apps Store app."
   s.homepage     = "https://github.com/mattiaslevin/MLVCircularProgressView/"
   s.license      = { :type => "MIT", :file => "LICENSE" }
