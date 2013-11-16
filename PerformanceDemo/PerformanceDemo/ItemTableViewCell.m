@@ -11,18 +11,43 @@
 @implementation ItemTableViewCell
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-  self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-  if (self) {
-    // Initialization code
-  }
-  return self;
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
+
+- (void)updateWithItem:(Item *)item {
+  // Remove old
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
   
-  // Configure the view for the selected state
+  // Set up new item
+  
+  self.indexLabel.text = [NSString stringWithFormat:@"#%d", item.index];
+  self.progressLabel.text = [NSString stringWithFormat:@"Progress: %.2f", item.progress];
+  
+  [self.progressView resetProgress];
+  [self.progressView setProgress:item.progress];
+  
+  __weak typeof(Item)*weakItem = item;
+  
+  [self.progressView completionBlock:^{
+    
+    [weakItem startReportingProgress];
+    [self.progressView resetProgress];
+    
+  } withDelay:2.0];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(progress:) name:ProgressNotification object:item];
+  
+}
+
+
+- (void)progress:(NSNotification*)notification {
+  
+  Item *item = notification.object;
+  self.progressLabel.text = [NSString stringWithFormat:@"Progress: %.2f", item.progress];
+  [self.progressView setProgress:item.progress];
+  
 }
 
 

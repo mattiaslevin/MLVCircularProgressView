@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MLVCircularProgressView.h"
+#import "Item.h"
+
 
 @interface ItemTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *indexLabel;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet MLVCircularProgressView *progressView;
+
+- (void)updateWithItem:(Item*)item;
 
 @end

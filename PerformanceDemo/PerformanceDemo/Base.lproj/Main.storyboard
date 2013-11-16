@@ -33,15 +33,11 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaP-nm-jNN" userLabel="View - Progess view" customClass="MLVCircularProgressView">
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaP-nm-jNN" userLabel="View - Progess view" customClass="MLVCircularProgressView">
                                             <rect key="frame" x="718" y="25" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.62745100259999997" green="0.62745100259999997" blue="0.62745100259999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="yaP-nm-jNN" secondAttribute="trailing" constant="20" id="KTF-vm-QFw"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="indexLabel" destination="Rkw-go-QQY" id="Mj9-d9-W5z"/>

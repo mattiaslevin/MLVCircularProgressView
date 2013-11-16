@@ -18,7 +18,7 @@
 @end
 
 
-static NSInteger const NumberOfItems = 100;
+static NSInteger const NumberOfItems = 20;
 static NSString * const ProgressCell = @"ProgressCell";
 
 
@@ -62,18 +62,7 @@ static NSString * const ProgressCell = @"ProgressCell";
   
   Item *item = [self.items objectAtIndex:indexPath.row];
   
-  cell.indexLabel.text = [NSString stringWithFormat:@"#%d", item.index];
-  cell.progressLabel.text = [NSString stringWithFormat:@"Progress: %.2f", item.progress];
-
-  [cell.progressView completionBlock:^{
-    [cell.progressView resetProgress];
-    [item startReportingProgress];
-  } withDelay:2.0];
-  
-  [cell.progressView resetProgress];
-  cell.progressView.progress = item.progress;
-  
-  item.cell = cell;
+  [cell updateWithItem:item];
   
   return cell;
 }

@@ -8,38 +8,38 @@
 
 #import "Item.h"
 
+
+NSString * const ProgressNotification = @"ProgressNotification";
+
+
 @implementation Item
 
 
 - (void)startReportingProgress {
   
-  __weak typeof(self)weakSelf = self;
-  
-  [self.cell.progressView startUnknownProgress];
+  self.progress = 0.0;
   
   double delayInSeconds = arc4random_uniform(30) / 10.0;
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     
-    [weakSelf updateProgress:0.0];
+    [self updateProgress];
     
   });
   
 }
 
 
-- (void)updateProgress:(CGFloat)progress {
+- (void)updateProgress {
   
-  if (progress >= 1.0) {
+  if (self.progress >= 1.0) {
     // Lets stop
     NSLog(@"Stop updating progress");
-    progress = 1.0;
-    self.cell.progressLabel.text = [NSString stringWithFormat:@"%.2f", progress];
-    self.cell.progressView.progress = progress;
+    self.progress = 1.0;
+    [[NSNotificationCenter defaultCenter] postNotificationName:ProgressNotification object:self];
     return;
   } else {
-    self.cell.progressLabel.text = [NSString stringWithFormat:@"%.2f", progress];
-    self.cell.progressView.progress = progress;
+    [[NSNotificationCenter defaultCenter] postNotificationName:ProgressNotification object:self];
   }
   
   __weak typeof(self)weakSelf = self;
@@ -48,8 +48,8 @@
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     
-    CGFloat newProgress = progress + (arc4random_uniform(15) / 100.0);
-    [weakSelf updateProgress:newProgress];
+    self.progress += (arc4random_uniform(15) / 100.0);
+    [weakSelf updateProgress];
     
   });
   

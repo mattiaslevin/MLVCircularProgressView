@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ItemTableViewCell.h"
+
+
+extern NSString * const ProgressNotification;
+
 
 @interface Item : NSObject
 
 @property (nonatomic) NSInteger index;
 @property (nonatomic) CGFloat progress;
-
-@property (nonatomic, weak) ItemTableViewCell *cell;
 
 - (void)startReportingProgress;
 
