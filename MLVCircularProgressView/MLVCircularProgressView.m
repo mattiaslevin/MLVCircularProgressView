@@ -100,6 +100,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     self.minimumUnknownProgress = [NSDate dateWithTimeIntervalSinceNow:minimumDuration];
   }
 
+  [self.progressBackgroundLayer removeFromSuperlayer];
   [self.layer addSublayer:self.progressUnknownLayer];
   [self startUnknownProgessAnimation];
 }
@@ -223,6 +224,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   
   if (!self.progressLayer.superlayer) {
     [self.progressUnknownLayer removeFromSuperlayer];
+    [self.layer addSublayer:self.progressBackgroundLayer];
     [self.layer addSublayer:self.progressLayer];
   }
   

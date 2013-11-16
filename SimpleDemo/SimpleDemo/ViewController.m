@@ -36,6 +36,7 @@
   
   __weak typeof(self)weakSelf = self;
   
+  self.progressLabel.text = @"-";
   [self.progressView startUnknownProgress];
   
   [self.progressView completionBlock:^{
