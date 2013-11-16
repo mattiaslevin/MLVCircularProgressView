@@ -48,7 +48,7 @@
  A custom algorithm could for instance provide a constant animation duration and never let the animated progress grow bigger then the last reported progress. Or an algorithm could calculate the duration based an an average velocity since the start of the animation.
  
  */
-@property (nonatomic, copy) NSTimeInterval (^animationDuration)(CGFloat progress, CGFloat increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, CGFloat *animatedProgress);
+@property (nonatomic, copy) NSTimeInterval (^animationDuration)(float progress, float increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, float *animatedProgress);
 
 
 /**
@@ -86,7 +86,7 @@
  
  The first reported progress value will not be animated. If you like the first reported progress to be animated, make sure you set the progress to 0.0 before the first actual progress value is set.
  */
-@property (nonatomic) CGFloat progress;
+@property (nonatomic) float progress;
 
 
 /**

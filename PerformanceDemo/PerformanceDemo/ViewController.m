@@ -18,7 +18,7 @@
 @end
 
 
-static NSInteger const NumberOfItems = 20;
+static NSInteger const NumberOfItems = 50;
 static NSString * const ProgressCell = @"ProgressCell";
 
 

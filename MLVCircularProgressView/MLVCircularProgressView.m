@@ -63,9 +63,9 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   
   __weak typeof(self)weakSelf = self;
   
-  _animationDuration = ^ (CGFloat progress, CGFloat increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, CGFloat *animatedProgress) {
+  _animationDuration = ^ (float progress, float increaseSinceLastProgress, NSTimeInterval durationSinceLastProgress, float *animatedProgress) {
     
-    CGFloat bestGuessNextProgress;
+    float bestGuessNextProgress;
     CFTimeInterval animationDuration;
     if (weakSelf.isFirstProgess) {
       bestGuessNextProgress = progress + weakSelf.minimumProgressChangeToTriggerAnimation;
@@ -84,10 +84,8 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     
   };
   
-//  // Create layer so they are ready when they need to be used
-//  CAShapeLayer *layer = self.progressUnknownLayer;
-//  layer = self.progressBackgroundLayer;
-//  layer = self.progressLayer;
+  [self.layer addSublayer:self.progressBackgroundLayer];
+  
 }
 
 
@@ -107,28 +105,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 }
 
 
-- (void)stopProgress {
-  [self.layer removeAllAnimations];
-}
-
-
-- (void)resetProgress {
-  
-  [self stopProgress];
-  
-  self.progress = 0.0;
-  self.previousReportedProgressTime = nil;
-  self.numberOfUsedAnimations = 0.0;
-  
-  [self.progressUnknownLayer removeFromSuperlayer];
-  [self.progressBackgroundLayer removeFromSuperlayer];
-  [self.progressLayer removeFromSuperlayer];
-  self.progressLayer = nil;
-  
-}
-
-
-- (void)setProgress:(CGFloat)progress {
+- (void)setProgress:(float)progress {
   NSLog(@"Set progress %f", progress);
   
   if ([self.minimumUnknownProgress compare:[NSDate date]] == NSOrderedDescending) {
@@ -140,7 +117,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
   
   } else if (progress == _progress) {
     
-    [self updateProgress:progress withDuration:-1.0];
+    [self progress:_progress withAnimationDuration:-1.0];
     
   } else if (!self.previousReportedProgressTime) {
     // First reported progress
@@ -150,30 +127,30 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     self.isFirstProgess = YES;
     self.previousReportedProgressTime = [NSDate date];
     
-    [self updateProgress:_progress withDuration:-1.0];
+    [self progress:_progress withAnimationDuration:-1.0];
     
   } else if (progress >= 1.0) {
     // Progress finished
     
     _progress = 1.0;
-    [self updateProgress:_progress withDuration:0.2];
+    [self progress:_progress withAnimationDuration:0.2];
     
   } else if ((progress - _progress >= self.minimumProgressChangeToTriggerAnimation) || self.isFirstProgess) {
     // Show progress with animation
     
-    CGFloat increaseSinceLastProgress = progress - _progress;
+    float increaseSinceLastProgress = progress - _progress;
     _progress = progress;
     
     NSTimeInterval durationSinceLastProgress = fabs([self.previousReportedProgressTime timeIntervalSinceNow]);
     self.previousReportedProgressTime = [NSDate date];
     
-    CGFloat animatedProgress = progress;
+    float animatedProgress = progress;
     NSTimeInterval animationDuration = self.animationDuration(progress, increaseSinceLastProgress, durationSinceLastProgress, &animatedProgress);
     NSLog(@"Animated progress %f, duration %f", animatedProgress, animationDuration);
     
     self.isFirstProgess = NO;
     
-    [self updateProgress:animatedProgress withDuration:animationDuration];
+    [self progress:animatedProgress withAnimationDuration:animationDuration];
     
   }
   
@@ -188,6 +165,26 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 - (void)completionBlock:(void(^)(void))completionBlock withDelay:(NSTimeInterval)delay {
   self.completionBlock = completionBlock;
   self.delay = delay;
+}
+
+
+- (void)stopProgress {
+  [self.layer removeAllAnimations];
+}
+
+
+- (void)resetProgress {
+  
+  [self stopProgress];
+  
+  self.progress = 0.0;
+  self.previousReportedProgressTime = nil;
+  self.numberOfUsedAnimations = 0.0;
+  
+  [self.progressUnknownLayer removeFromSuperlayer];
+  [self.progressLayer removeFromSuperlayer];
+  self.progressLayer = nil;
+  
 }
 
 
@@ -214,20 +211,19 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 
 #pragma mark - Progress layer animation
 
-- (void)updateProgress:(CGFloat)progress withDuration:(CFTimeInterval)animationDuration {
+- (void)progress:(float)progress withAnimationDuration:(CFTimeInterval)animationDuration {
   //  NSLog(@"Progress: %f, duration %f", progress, animationDuration);
   
-  if (!self.progressLayer.superlayer) {
-    [self.progressUnknownLayer removeFromSuperlayer];
-    [self.layer addSublayer:self.progressBackgroundLayer];
-    [self.layer addSublayer:self.progressLayer];
-  }
-  
   CAShapeLayer *presentationLayer = (CAShapeLayer*)self.progressLayer.presentationLayer;
-  CGFloat animatedProgress = presentationLayer.strokeEnd;
+  float animatedProgress = presentationLayer.strokeEnd;
   if (animatedProgress > progress) {
     // Do nothing
     return;
+  }
+  
+  if (!self.progressLayer.superlayer) {
+    [self.progressUnknownLayer removeFromSuperlayer];
+    [self.layer addSublayer:self.progressLayer];
   }
   
   if (animationDuration > 0.0) {
