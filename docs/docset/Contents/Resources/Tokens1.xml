@@ -82,7 +82,7 @@
 			<Abstract type="html">Set a custom block that implements your own algorithm for calculating the animation duration and optionally adjusting the target progress between two reported progress values. This block will only be called when a progress change becomes bigger then the minimumProgressChangeToTriggerAnimation value.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( CGFloat progress , CGFloat increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , CGFloat *animatedProgress ) animationDuration</Declaration>
+			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( float progress , float increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , float *animatedProgress ) animationDuration</Declaration>
 			
 			
 			<Anchor>//api/name/animationDuration</Anchor>
@@ -93,7 +93,7 @@
 			<Abstract type="html">Set a custom block that implements your own algorithm for calculating the animation duration and optionally adjusting the target progress between two reported progress values. This block will only be called when a progress change becomes bigger then the minimumProgressChangeToTriggerAnimation value.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( CGFloat progress , CGFloat increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , CGFloat *animatedProgress ) animationDuration</Declaration>
+			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( float progress , float increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , float *animatedProgress ) animationDuration</Declaration>
 			
 			
 			<Anchor>//api/name/animationDuration</Anchor>
@@ -104,7 +104,7 @@
 			<Abstract type="html">Set a custom block that implements your own algorithm for calculating the animation duration and optionally adjusting the target progress between two reported progress values. This block will only be called when a progress change becomes bigger then the minimumProgressChangeToTriggerAnimation value.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( CGFloat progress , CGFloat increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , CGFloat *animatedProgress ) animationDuration</Declaration>
+			<Declaration>@property (nonatomic, copy) NSTimeInterval ( ^ ) ( float progress , float increaseSinceLastProgress , NSTimeInterval durationSinceLastProgress , float *animatedProgress ) animationDuration</Declaration>
 			
 			
 			<Anchor>//api/name/animationDuration</Anchor>
@@ -147,7 +147,7 @@
 			<Abstract type="html">Set the progress of the progress view.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			<Declaration>@property (nonatomic) float progress</Declaration>
 			
 			
 			<Anchor>//api/name/progress</Anchor>
@@ -158,7 +158,7 @@
 			<Abstract type="html">Set the progress of the progress view.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			<Declaration>@property (nonatomic) float progress</Declaration>
 			
 			
 			<Anchor>//api/name/progress</Anchor>
@@ -169,7 +169,7 @@
 			<Abstract type="html">Set the progress of the progress view.</Abstract>
 			<DeclaredIn>MLVCircularProgressView.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			<Declaration>@property (nonatomic) float progress</Declaration>
 			
 			
 			<Anchor>//api/name/progress</Anchor>
