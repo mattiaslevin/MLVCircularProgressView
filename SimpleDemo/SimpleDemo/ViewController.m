@@ -27,6 +27,8 @@
 //    return 0.3;
 //  };
   
+  self.progressView.shapeColor = [UIColor redColor];
+  
   [self startProgress];
   
 }

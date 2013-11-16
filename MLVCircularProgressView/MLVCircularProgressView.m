@@ -58,6 +58,8 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 
 
 - (void)commonInit {
+  
+  // Default values
   _minimumProgressChangeToTriggerAnimation = 0.1;
   _shapeColor = [UIColor blueColor];
   
@@ -107,7 +109,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 
 
 - (void)setProgress:(float)progress {
-  NSLog(@"Set progress %f", progress);
+//  NSLog(@"Set progress %f", progress);
   
   if ([self.minimumUnknownProgress compare:[NSDate date]] == NSOrderedDescending) {
     // Keep showing the unknown progress animation
@@ -147,7 +149,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
     
     float animatedProgress = progress;
     NSTimeInterval animationDuration = self.animationDuration(progress, increaseSinceLastProgress, durationSinceLastProgress, &animatedProgress);
-    NSLog(@"Animated progress %f, duration %f", animatedProgress, animationDuration);
+//    NSLog(@"Animated progress %f, duration %f", animatedProgress, animationDuration);
     
     self.isFirstProgess = NO;
     
@@ -239,7 +241,7 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
         }
       }];
       
-      NSLog(@"Used %lu animations in total", (unsigned long)self.numberOfUsedAnimations);
+//      NSLog(@"Used %lu animations in total", (unsigned long)self.numberOfUsedAnimations);
 
     }
     
@@ -288,9 +290,21 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
 - (void)setShapeColor:(UIColor *)color {
   _shapeColor = color;
   
-  self.progressUnknownLayer.strokeColor = _shapeColor.CGColor;
-  self.progressBackgroundLayer.strokeColor = _shapeColor.CGColor;
-  self.progressLayer.strokeColor = _shapeColor.CGColor;
+  if ([self.progressUnknownLayer superlayer]) {
+    [self.progressUnknownLayer removeFromSuperlayer];
+    self.progressUnknownLayer = nil;
+    [self.layer addSublayer:self.progressUnknownLayer];
+  } else {
+    self.progressUnknownLayer = nil;
+  }
+
+  if ([self.progressBackgroundLayer superlayer]) {
+    [self.progressBackgroundLayer removeFromSuperlayer];
+    self.progressBackgroundLayer = nil;
+    [self.layer addSublayer:self.progressBackgroundLayer];
+  } else {
+    self.progressBackgroundLayer = nil;
+  }
   
 }
 
@@ -335,10 +349,12 @@ static  NSString * const ProgressAnimationKey = @"ProgressAnimationKey";
                                                       endAngle:(2.0 * M_PI - M_PI_2)
                                                      clockwise:YES];
     _progressBackgroundLayer.path = path.CGPath;
+    
     CAShapeLayer *squareBackgrounfLayer = [CAShapeLayer layer];
     squareBackgrounfLayer.frame = self.bounds;
     squareBackgrounfLayer.backgroundColor = nil;
     squareBackgrounfLayer.fillColor = _shapeColor.CGColor;
+    squareBackgrounfLayer.strokeColor = _shapeColor.CGColor;
     CGFloat squareSize = floorf(MIN(CGRectGetWidth(bounds), CGRectGetHeight(bounds)) * 0.2);
     path = [UIBezierPath bezierPathWithRect:CGRectInset(bounds, CGRectGetMidX(bounds) - squareSize, CGRectGetMidY(bounds) - squareSize)];
     squareBackgrounfLayer.path = path.CGPath;
